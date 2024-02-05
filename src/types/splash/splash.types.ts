@@ -1,0 +1,3 @@
+type SplashProps = {
+  display: boolean;
+}
