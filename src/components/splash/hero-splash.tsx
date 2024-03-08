@@ -3,6 +3,7 @@ import { animate, AnimatePresence, motion } from "framer-motion";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 const HeroSplash = ({ display }: SplashProps) => {
+
   const counterRef: MutableRefObject<any> = useRef();
   const [showCounter, setShowCounter] = useState(true);
   useEffect(() => {
@@ -24,7 +25,7 @@ const HeroSplash = ({ display }: SplashProps) => {
 
     return () => controls.stop();
   }, []);
-  return <div className={"z-0"}><AnimatePresence mode={"wait"} initial={false}>
+  return <div><AnimatePresence mode={"wait"} initial={false}>
     {
       display ?
         <motion.div
@@ -40,15 +41,17 @@ const HeroSplash = ({ display }: SplashProps) => {
     }
   </AnimatePresence>
     <motion.div
+
       layout={true}
       initial={{ y: "60vh", color: "#fff" }}
       animate={{
         y: ["60vh", "50vh", "40vh", "35vh", "20vh", "0vh"],
         color: ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#1f4cd1", "#03154a", "#000"],
-        className: "mix-blend-difference",
+
       }}
+
       transition={{ duration: 5.5, ease: "easeIn" }}
-      className={"z-10 my-[80%] lg:my-[15%] fixed flex-col h-screen w-screen bg-transparent text-white font-bold text-[30px] sm:text-[50px] lg:text-[70px] px-4 lg:px-24 "}>
+      className={"my-[80%] lg:my-[15%] absolute flex-col h-screen w-screen bg-transparent text-white font-bold text-[30px] sm:text-[50px] lg:text-[70px] px-4 lg:px-24"}>
       <AnimatePresence>
         {showCounter ? <motion.div initial={{ opacity: 1 }} exit={{
           opacity: 0, y: -400, transition: {
